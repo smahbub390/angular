@@ -1,0 +1,21 @@
+<input type="text" placeholder="Enter Stock Symbol" [(ngModel)]="stockSymbol">
+<button (click)="getStockDetails()"> Track Stock</button>
+<div *ngIf="dataLoaded"> Loading....</div>
+<div>
+    <div *ngFor="let response of result; index as i">
+        <div>
+            <span>{{response.data.symbol}}: </span>
+            <span>{{response.data.description}}</span>
+        </div>
+        <div>
+            <span> Current Price:{{response.details.c}}</span>
+            <span> Percent Change:{{response.details.d}}</span>
+            <span>Day Open : {{response.details.o}}</span>
+            <span>High Price : {{response.details.h}}</span>
+        </div>
+        <div>
+            <button [routerLink]="['sentiment',response.data.symbol]">Sentiment</button>
+            <button (click)="removeStock(i)">Remove</button>
+        </div>
+    </div>
+</div>
