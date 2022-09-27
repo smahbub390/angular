@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { from, mergeAll, Subscription } from 'rxjs';
 import { StockTrackerService } from '../service/stock-tracker.service';
 
+
 @Component({
   selector: 'app-trade-home',
   templateUrl: './trade-home.component.html',
@@ -15,8 +16,8 @@ export class TradeHomeComponent implements OnInit {
   getResponse: Array<any> = []; 
   result: Array<any> = [];
   dataLoaded : boolean = false;
-  searchStockUrl = 'https://finnhub.io/api/v1/search?token=bu4f8kn48v6uehqi3cqg&q=';
-  detailsStockUrl = 'https://finnhub.io/api/v1/quote?token=bu4f8kn48v6uehqi3cqg&symbol=';
+  searchStockUrl:string = 'https://finnhub.io/api/v1/search?token=bu4f8kn48v6uehqi3cqg&q=';
+  detailsStockUrl:string = 'https://finnhub.io/api/v1/quote?token=bu4f8kn48v6uehqi3cqg&symbol=';
  
   subscriptionData$!: Subscription;
   subscriptionDetails$!: Subscription;

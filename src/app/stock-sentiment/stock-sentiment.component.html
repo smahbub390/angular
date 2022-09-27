@@ -1,7 +1,7 @@
 <div>
-<div> <button [routerLink]="['']">< Back</button></div>
+<div> <button id="backBtn" [routerLink]="['']">< Back</button></div>
         
-<span>{{symbol}}</span> 
+<span>Symbol: {{symbol}}</span> 
     <div *ngFor="let data1 of data; index as i">
 
         <div>{{month[data1.month]}}</div>
