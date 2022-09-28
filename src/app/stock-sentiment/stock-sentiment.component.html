@@ -1,15 +1,15 @@
 <div>
 <div> <button id="backBtn" [routerLink]="['']">< Back</button></div>
         
-<span>Symbol: {{symbol}}</span> 
-    <div *ngFor="let data1 of data; index as i">
+<span style="font-weight: bold;">Symbol: {{symbol}}</span> 
+    <div *ngFor="let data of sentimentdata; index as i">
 
-        <div>{{month[data1.month]}}</div>
+        <div style="font-weight: bold;">{{month[data.month]}}</div>
     <div>
 
-<div>Mspr:{{data1.mspr}}</div> 
-<span>Change:{{data1.change}}</span>
-<span *ngIf="data1.change < 0; else other" style="color: green;">🡹</span>
+<div>Mspr:{{data.mspr}}</div> 
+<span>Change:{{data.change}}</span>
+<span *ngIf="data.change > 0; else other" style="color: green;">🡹</span>
  <ng-template #other><span  style="color: red;">🢃</span></ng-template>
 
     </div>

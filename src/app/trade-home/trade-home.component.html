@@ -1,7 +1,7 @@
 <div>
     <input type="text" id="stockInput" placeholder="Enter Stock Symbol" [(ngModel)]="stockSymbol">
     <button id="trackBtn" (click)="getStockDetails()"> Track Stock</button>
-    <div *ngIf="dataLoaded"> Loading....</div>
+    <div style="height:10px"><div *ngIf="dataLoaded"> Loading....</div></div>
     <div>
         <div *ngFor="let response of result; index as i">
             <div>
@@ -9,10 +9,10 @@
                 <span>{{response.data.description}}</span>
             </div>
             <div>
-                <span> Current Price:{{response.details.c}}</span>
-                <span> Percent Change:{{response.details.d}}</span>
-                <span>Day Open : {{response.details.o}}</span>
-                <span>High Price : {{response.details.h}}</span>
+                <span> Current Price:{{response.details.c | currency}}</span>
+                <span> Percent Change:{{response.details.d}} %</span>
+                <span>Day Open : {{response.details.o | currency}}</span>
+                <span>High Price : {{response.details.h | currency}}</span>
             </div>
             <div>
                 <button id="{{'sentiment'+response.data.symbol}}"  [routerLink]="['sentiment',response.data.symbol]">Go to Social Sentiment Details ></button>
